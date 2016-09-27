@@ -5,7 +5,7 @@
 	],
 	"dependencies": {
 		"vibe-d": "~>0.7.29",
-		"dscord": "~>0.0.9+commit.3.g9e54d70"
+		"dscord": "~>0.0.9"
 	},
 	"target-type": "executable",
 	"description": "Bot that looks up Japanese words on Jisho",
