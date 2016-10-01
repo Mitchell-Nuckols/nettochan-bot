@@ -90,17 +90,20 @@ class NettoPlugin : Plugin {
             for(int vj = 0; vj < data[v]["japanese"].array.length; vj++) {
                 string word = "";
                 string reading = "";
+                bool common;
+
+                if("is_common" in data[v] && data[v]["is_common"].type == JSON_TYPE.TRUE) common = true;
 
                 if("reading" in data[v]["japanese"][vj]) reading = data[v]["japanese"][vj]["reading"].str;
 
                 if("word" in data[v]["japanese"][vj]) word = data[v]["japanese"][vj]["word"].str;
 
                 if(reading != "" && word != "") {
-                    words ~= "<" ~ word ~ " (" ~ reading ~ ")>";
+                    words ~= "<" ~ word ~ " (" ~ reading ~ ")" ~ (common ? " [common]" : "") ~ ">";
                 }else if(word != "") {
-                    words ~= "<" ~ word ~ ">";
+                    words ~= "<" ~ word ~ (common ? " [common]" : "") ~ ">";
                 }else if(reading != "") {
-                    words ~= "<" ~ reading ~ ">";
+                    words ~= "<" ~ reading ~ (common ? " [common]" : "") ~ ">";
                 }else {
                     result = "# ERROR! Could not lookup reading or definition for '" ~ search ~ "'";
                     return result;
