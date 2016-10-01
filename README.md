@@ -2,7 +2,7 @@
 A Discord bot that provides Japanese word definitions from Jisho
 
 # Adding to a Server
-If you would like to just simply add the public version of the bot to your server, authorize it using this link: [here](https://discordapp.com/oauth2/authorize?&client_id=229744143989997568&scope=bot)
+If you would like to just simply add the public version of the bot to your server, authorize it using [this link](https://discordapp.com/oauth2/authorize?&client_id=229744143989997568&scope=bot).
 I recommend this because it keeps the bot on the most up to date stable release and does not require you to continue to update it.
 However, if it gets used too much, I may have to take it down (doubt that'll happen, lol).
 
@@ -19,11 +19,17 @@ $ sudo add-apt-repository ppa:chris-lea/libsodium
 $ sudo apt-get update
 $ sudo apt-get install libsodium-dev
 ```
-
+Note: You may need more than 512MB of ram to build the application. However, you do not need more than 512MB to run Netto-chan. In order to build, create a temporary swap of about 4GB just so you insure you will have enough memory to build.
 
 To build, simply change directory into the cloned repo and run `dub build`.
-Note: You may need more than 512MB of ram to build the application. However, you do not need more than 512MB to run Netto-chan. In order to build, create a temporary swap of about 4GB just so you insure you will have enough memory to build.
 
 Finally, you will need a bot profile set up, which can be done [here](https://discordapp.com/developers/applications/me).
 
 The usage of the bot is pretty simple: run `nettochan-bot <BOT TOKEN>` and you should be good to go!
+
+# Updating
+In order to update, just pull the repo and build it again:
+```
+$ git pull
+$ dub build
+```
