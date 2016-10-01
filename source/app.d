@@ -93,7 +93,7 @@ class NettoPlugin : Plugin {
 
                 if("reading" in data[v]["japanese"][vj]) reading = data[v]["japanese"][vj]["reading"].str;
 
-                if("word" in data[v]["japanese"][vj]) reading = data[v]["japanese"][vj]["word"].str;
+                if("word" in data[v]["japanese"][vj]) word = data[v]["japanese"][vj]["word"].str;
 
                 if(reading != "" && word != "") {
                     words ~= "<" ~ word ~ " (" ~ reading ~ ")>";
@@ -113,8 +113,8 @@ class NettoPlugin : Plugin {
                 string types = joinJSONStringArr(data[v]["senses"][vs]["parts_of_speech"].array, ", ");
                 string definitions = joinJSONStringArr(data[v]["senses"][vs]["english_definitions"].array, ", ");
 
-                if(types == "") result ~= ">>[" ~ to!string(vs + 1) ~ ".][" ~ definitions ~ "]\n";
-                else result ~= ">>[" ~ to!string(vs + 1) ~ ".](" ~ types ~ ")][" ~ definitions ~ "]\n";
+                if(types == "") result ~= ">>[" ~ to!string(vs + 1) ~ ".]() " ~ definitions ~ "\n";
+                else result ~= ">>[" ~ to!string(vs + 1) ~ ".](" ~ types ~ ") " ~ definitions ~ "\n";
             }
 
             if(result.length >= 1500) {
