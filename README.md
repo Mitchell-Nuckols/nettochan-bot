@@ -12,11 +12,13 @@ DMD can be found [here](https://dlang.org/download.html) and DUB can be found [h
 If you are running on Ubuntu (the only alternate version besides Windows that I have tested), you can use the APT repo [here](http://d-apt.sourceforge.net/) to download and install both of these on the command line.
 
 You will need a couple libraries installed on Ubuntu to properly build the application:
-`sudo apt-get install libssl-dev`
-`sudo apt-get install libevent-dev`
-`sudo add-apt-repository ppa:chris-lea/libsodium`
-`sudo apt-get update`
-`sudo apt-get install libsodium-dev`
+```
+$ sudo apt-get install libssl-dev
+$ sudo apt-get install libevent-dev
+$ sudo add-apt-repository ppa:chris-lea/libsodium
+$ sudo apt-get update
+$ sudo apt-get install libsodium-dev
+```
 
 
 To build, simply change directory into the cloned repo and run `dub build`.
