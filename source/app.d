@@ -30,7 +30,7 @@ class NettoPlugin : Plugin {
         int choke = -1;
 
         if(event.args.length < 1) {
-            event.msg.reply("```md\n# USAGE: ~!def [word] ([entry #])\n```");
+            this.client.api.sendMessage(event.msg.channelID, "```md\n# USAGE: ~!def [word] ([entry #])\n```", null, false);
             return;
         }
 
@@ -38,7 +38,7 @@ class NettoPlugin : Plugin {
 
         string response = lookupWord(event.args[0], choke);
 
-        event.msg.reply("```md\n" ~ response ~ "\n```");
+        this.client.api.sendMessage(event.msg.channelID, "```md\n" ~ response ~ "\n```", null, false);
     }
 
     string joinJSONStringArr(JSONValue[] arr, string connector) {
